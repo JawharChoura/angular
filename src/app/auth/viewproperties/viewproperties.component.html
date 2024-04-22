@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="col-md-12 text-center">
+      <h2 class="my-4 page-title">List of Properties</h2>
+      <!-- Bouton pour retourner au menu -->
+      <a href="#" class="btn btn-secondary">Retourner au menu</a>
+    </div>
+    <div class="text-right mb-3">
+      <!-- Bouton "Ajouter section" -->
+      <button type="button" class="btn btn-primary">Gérer properties</button>
+    </div>
+    <div>
+      <!-- Element pour créer de nouveaux auteurs -->
+      <app-create></app-create>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let propertiess of propertiess">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ propertiess.nomproperties }}</h5>
+            <p class="card-text">Email: {{ propertiess.email }}</p>
+            <p class="card-text">Numéro de téléphone: {{ propertiess.numtel }}</p>
+            <div class="btn-group" role="group" aria-label="Actions">
+              <!-- Liens fictifs pour voir, modifier et supprimer -->
+              <a href="#" class="btn btn-info">
+                <i class="bi bi-info-square-fill"></i> Voir
+              </a>
+              <a href="#" class="btn btn-primary">
+                <i class="bi bi-pencil-square"></i> Modifier
+              </a>
+              <button type="button" class="btn btn-danger">
+                <i class="bi bi-trash-fill"></i> Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

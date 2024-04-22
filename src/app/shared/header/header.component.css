@@ -1,0 +1,6 @@
+.navbar-nav a {
+  cursor: pointer;
+  align-items: center;
+  padding: 10px 15px; /* Adjust padding as needed */
+  color: #333; /* Adjust color as needed */
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Form</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-center mb-6 flex flex-col items-center">
+            <i class="bx bx-user text-gray-500 text-4xl mb-2"></i>
+            Login Page
+        </h2>
+        <form>
+            <div class="mb-4 relative">
+              <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" id="email" class="py-2 pl-10 w-full outline-none border border-gray-300 rounded-lg focus:ring-2 ring-blue-500" placeholder="Email" required>
+                <i class="bx bxl-gmail text-gray-500 absolute top-1/2 transform -translate-y-1/2 left-3"></i>
+            </div>
+            <div class="mb-4 relative">
+                
+            <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="password" class="py-2 pl-10 w-full outline-none border border-gray-300 rounded-lg focus:ring-2 ring-blue-500" placeholder="Password" required>
+                <i class="bx bxs-lock-alt text-gray-500 absolute top-1/2 transform -translate-y-1/2 left-3"></i>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" id="remember" class="form-check-input">
+              <label for="remember" class="form-check-label">Remember me</label>
+              <span>&nbsp;&nbsp;</span>
+              <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">Forgot Password</a>
+            </div>
+  
+          <button id="signInButton" type="button" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm w-full" (click)="login()">Sign in</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+
+.btn-primary {
+  color: rgb(30, 5, 252); /* Couleur de texte par défaut */
+  background-color: white; /* Couleur de fond par défaut */
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  color: white; /* Couleur de texte lorsque survolé ou en focus */
+  background-color: rgb(80, 3, 247); /* Couleur de fond lorsque survolé ou en focus */
+}
+
+/* Ajouter du style personnalisé ici */
+.card {
+  padding: 4.5rem;
+}
+
+.card-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.form-control {
+  font-size: 1.1em;
+  
+}

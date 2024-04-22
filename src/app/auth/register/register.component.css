@@ -1,0 +1,48 @@
+.login-register {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  padding: 10% 0;
+  position: fixed;
+  display: flex; /* Ajout de flexbox pour centrer les éléments */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+}
+
+
+.login-box {
+  width: 400px;
+  margin: 0 auto; }
+  .login-box .footer {
+    width: 100%;
+    left: 0px;
+    right: 0px; }
+  .login-box .social {
+    display: block;
+    margin-bottom: 30px; }
+
+#recoverform {
+  display: none; }
+
+.login-sidebar {
+  padding: 0px;
+  margin-top: 0px; }
+  .login-sidebar .login-box {
+    right: 0px;
+    position: absolute;
+    height: 100%; }
+
+    .btn-primary {
+      color: rgb(30, 5, 252); /* Couleur de texte par défaut */
+      background-color: white; /* Couleur de fond par défaut */
+    }
+    
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active {
+      color: white; /* Couleur de texte lorsque survolé ou en focus */
+      background-color: rgb(80, 3, 247); /* Couleur de fond lorsque survolé ou en focus */
+    }
+    

@@ -1,0 +1,34 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Ajouter une marge en bas pour créer un espace entre les cartes */
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-text {
+    color: #666;
+  }
+  
+  .btn-group {
+    margin-top: 1rem;
+  }
+  
+  .btn {
+    margin-right: 0.5rem;
+  }
+  
+  .btn i {
+    margin-right: 0.25rem;
+  }
+  

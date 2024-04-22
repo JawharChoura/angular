@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="col-md-12 text-center">
+      <h2 class="my-4 page-title">List of Project</h2>
+      <!-- Bouton pour retourner au menu -->
+      <a class="btn btn-secondary" (click)="retournerAuMenu()">Retourner au menu</a>
+    </div>
+    <div>
+      <!-- Element pour créer de nouveaux auteurs -->
+      <app-create></app-create>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let auteur of auteurs">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ auteur.nomauteur }}</h5>
+            <p class="card-text">Email: {{ auteur.email }}</p>
+            <p class="card-text">Numéro de téléphone: {{ auteur.numtel }}</p>
+            <div class="btn-group" role="group" aria-label="Actions">
+              <!-- Liens fictifs pour voir, modifier et supprimer -->
+              <a href="#" class="btn btn-info">
+                <i class="bi bi-info-square-fill"></i> Voir
+              </a>
+              <a href="#" class="btn btn-primary">
+                <i class="bi bi-pencil-square"></i> Modifier
+              </a>
+              <button type="button" class="btn btn-danger">
+                <i class="bi bi-trash-fill"></i> Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

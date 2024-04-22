@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <h2>Edit User Profile</h2>
+
+  <div *ngIf="isUpdateSuccessful; else formContent">
+    <div class="alert alert-success">
+      User information updated successfully!
+    </div>
+    <p>Redirecting to view user page...</p>
+  </div>
+
+  <ng-template #formContent>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name:</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
+      </div>
+    
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name:</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
+      </div>
+    
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+      </div>
+
+      <div class="mb-3">
+        <label for="company" class="form-label">Company:</label>
+        <input type="text" class="form-control" id="company" formControlName="company">
+      </div>
+
+      <div class="mb-3">
+        <label for="city" class="form-label">City:</label>
+        <input type="text" class="form-control" id="city" formControlName="city">
+      </div>
+
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number:</label>
+        <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+  </ng-template>
+</div>

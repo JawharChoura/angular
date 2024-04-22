@@ -1,0 +1,51 @@
+<figure class="text-center">
+  <h1 class="font-italic">Users List</h1>
+</figure>
+
+<div class="search-container container">
+  <div class="search-input-container">
+    <input type="text" placeholder="Search by name" class="search-input" (input)="performSearch()" />
+  </div>
+</div>
+
+<table class="container">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th style="font-family: 'Arial', sans-serif; font-size: 18px;">Nom</th>
+      <th>Prenom</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Numero</th>
+      <th>City</th>
+      <th>Company</th>
+      <th>Role</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of customers">
+      <td>{{c.id}}</td>
+      <td>{{c.firstName}}</td>
+      <td>{{c.lastName}}</td>
+      <td>{{c.email}}</td>
+      <td>{{c.password}}</td>
+      <td>{{c.phoneNumber}}</td>
+      <td>{{c.city}}</td>
+      <td>{{c.company}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let role of c.roles">{{role}}</li>
+        </ul>
+      </td>
+     
+      <td>
+        <button class="btn btn-success rounded" style="cursor: pointer;">Modifier</button>
+      </td>
+      <td>
+        <button class="btn btn-danger rounded" (click)="deleteCustomer(c.id)" style="cursor: pointer;">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
