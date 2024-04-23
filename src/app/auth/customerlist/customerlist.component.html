@@ -27,21 +27,22 @@
   <tbody>
     <tr *ngFor="let c of customers">
       <td>{{c.id}}</td>
-      <td>{{c.firstName}}</td>
-      <td>{{c.lastName}}</td>
-      <td>{{c.email}}</td>
-      <td>{{c.password}}</td>
-      <td>{{c.phoneNumber}}</td>
-      <td>{{c.city}}</td>
-      <td>{{c.company}}</td>
+      <td contenteditable="true" (blur)="updateField(c, 'firstName', $event)">{{c.firstName}}</td>
+      <td contenteditable="true" (blur)="updateField(c, 'lastName', $event)">{{c.lastName}}</td>
+      <td contenteditable="true" (blur)="updateField(c, 'email', $event)">{{c.email}}</td>
+      <td contenteditable="true" (blur)="updateField(c, 'password', $event)">{{c.password}}</td>
+      <td contenteditable="true" (blur)="updateField(c, 'phoneNumber', $event)">{{c.phoneNumber}}</td>
+      <td contenteditable="true" (blur)="updateField(c, 'city', $event)">{{c.city}}</td>
+      <td contenteditable="true" (blur)="updateField(c, 'company', $event)">{{c.company}}</td>
       <td>
         <ul>
-          <li *ngFor="let role of c.roles">{{role}}</li>
+          <li *ngFor="let role of c.roles; let i = index" contenteditable="true" (blur)="updateRoles(c, i, role)">
+            {{role}}
+          </li>
         </ul>
       </td>
-     
       <td>
-        <button class="btn btn-success rounded" style="cursor: pointer;">Modifier</button>
+        <button class="btn btn-success rounded" (click)="updateCustomer(c)" style="cursor: pointer;">Modifier</button>
       </td>
       <td>
         <button class="btn btn-danger rounded" (click)="deleteCustomer(c.id)" style="cursor: pointer;">Supprimer</button>

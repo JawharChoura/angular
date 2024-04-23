@@ -1,14 +1,11 @@
 <div class="container mt-5">
   <h2>Edit User Profile</h2>
 
-  <div *ngIf="isUpdateSuccessful; else formContent">
-    <div class="alert alert-success">
-      User information updated successfully!
-    </div>
-    <p>Redirecting to view user page...</p>
+  <div *ngIf="isUpdateSuccessful" class="alert alert-success">
+    User information updated successfully!
   </div>
 
-  <ng-template #formContent>
+  <ng-container *ngIf="!isUpdateSuccessful">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="firstName" class="form-label">First Name:</label>
@@ -22,7 +19,7 @@
     
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" formControlName="email">
+        <input type="email" class="form-control" id="email" formControlName="email" required>
       </div>
 
       <div class="mb-3">
@@ -42,5 +39,5 @@
 
       <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
-  </ng-template>
+  </ng-container>
 </div>

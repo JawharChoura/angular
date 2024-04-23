@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EdituserComponent implements OnInit {
   userForm: FormGroup;
   userEmail: string = '';
+  userId: number | null = null;
   isUpdateSuccessful: boolean = false;
   userInfo: any = {};
 
@@ -23,7 +24,7 @@ export class EdituserComponent implements OnInit {
     this.userForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: [{ value: '', disabled: true }, [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       company: [''],
       city: [''],
       phoneNumber: ['']
@@ -42,6 +43,7 @@ export class EdituserComponent implements OnInit {
     this.http.get<any>(`http://localhost:8081/api/users/get-info/${email}`).subscribe(
       (response: any) => {
         console.log("User info received:", response);
+        this.userId = response.id;
         this.userForm.patchValue({
           firstName: response.firstName,
           lastName: response.lastName,
@@ -58,30 +60,35 @@ export class EdituserComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const url = `http://localhost:8081/api/users/update-details/${this.userEmail}`;
+    if (!this.userId) {
+      console.error('User ID is not available.');
+      return;
+    }
+
+    const url = `http://localhost:8081/api/users/update-details/${this.userId}`;
 
     const userData = {
       firstName: this.userForm.value.firstName,
       lastName: this.userForm.value.lastName,
-      email: this.userEmail,
+      email: this.userForm.value.email,
       company: this.userForm.value.company || '',
       city: this.userForm.value.city || '',
       phoneNumber: this.userForm.value.phoneNumber || ''
     };
 
+    console.log('Updating user data:', userData);
+
     this.http.put(url, userData).subscribe(
       () => {
-        console.log('Les informations de l\'utilisateur ont été mises à jour avec succès.');
+        console.log('User information updated successfully.');
         this.isUpdateSuccessful = true;
-        // Autres actions à effectuer après la mise à jour réussie
         setTimeout(() => {
-          this.router.navigate(['/view-user']);
-        }, 3000); // Redirige vers la page de visualisation de l'utilisateur après 3 secondes
+          this.isUpdateSuccessful = false;
+        }, 1000); // Supprime le message de succès après 3 secondes
       },
       (error: HttpErrorResponse) => {
-        console.error('Une erreur est survenue lors de la mise à jour des informations de l\'utilisateur :', error);
-        // Affichez le message d'erreur complet
-        console.error('Erreur détaillée :', error.error);
+        console.error('An error occurred while updating user information:', error);
+        console.error('Detailed error:', error.error);
       }
     );
   }
